@@ -1,0 +1,7 @@
+symbol: BTCUSDT
+interval: 1h
+strategy:
+  ema_period: 21
+  rsi_period: 14
+  rsi_buy: 30
+  rsi_sell: 70
