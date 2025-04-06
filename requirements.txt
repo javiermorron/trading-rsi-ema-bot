@@ -1,5 +1,6 @@
-binance
+python-binance
 pandas
 pandas_ta
 pyyaml
 python-dotenv
+numpy==1.23.5

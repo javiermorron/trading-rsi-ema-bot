@@ -14,11 +14,13 @@
 
 - Python 3.10 o superior
 - Paquetes necesarios:
-  - `binance`
+  - `python-binance`
   - `pandas`
   - `pandas_ta`
   - `pyyaml`
   - `python-dotenv`
+  - `numpy==1.23.1`
+  - `setuptools==65.5.0`
 
 ---
 
@@ -66,6 +68,41 @@ python main.py
 ├── requirements.txt         # Dependencias
 ├── LICENSE                  # Licencia MIT
 └── README.md                # Este archivo ✨
+```
+
+---
+
+## 🧯 Problemas comunes y soluciones
+
+🔹 **Error:** `ModuleNotFoundError: No module named 'yaml'`
+- 💡 Solución: Ejecutar `pip install pyyaml`
+
+🔹 **Error:** `ModuleNotFoundError: No module named 'binance'`
+- 💡 Solución: Ejecutar `pip install python-binance`
+
+🔹 **Error:** `ImportError: cannot import name 'NaN' from 'numpy'`
+- 💡 Solución 1: Ejecutar `pip install numpy==1.23.1`
+- 💡 Solución 2 (alternativa definitiva): Editar el archivo `squeeze_pro.py` en `pandas_ta` y reemplazar:
+  ```python
+  from numpy import NaN as npNaN
+  ```
+  por:
+  ```python
+  import numpy as np
+  npNaN = np.nan
+  ```
+
+🔹 **Error:** `pkgutil has no attribute 'ImpImporter'`
+- 💡 Solución: Ejecutar `pip install setuptools==65.5.0`
+
+🔹 **Error:** `ModuleNotFoundError: No module named 'pkg_resources'`
+- 💡 Solución: Ejecutar `pip install setuptools`
+
+🔹 **Recomendación:** usar un entorno virtual limpio:
+```bash
+python -m venv env
+env\Scripts\activate  # Windows
+pip install -r requirements.txt
 ```
 
 ---
